@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import { connect } from 'react-redux';
 import { getAllPosts } from './actions/signals/post';
@@ -8,7 +9,12 @@ class App extends Component {
     this.props.getAllPosts();
   };
   render() {
-    return <h1>hello world</h1>;
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <h1>hello world</h1>
+      </React.Fragment>
+    );
   }
 }
 
