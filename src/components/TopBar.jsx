@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,26 +9,31 @@ import MenuIcon from '@material-ui/icons/Menu';
 import styles from '../assets/jss/TopBar';
 
 const TopBar = props => {
-  const { classes } = props;
+  const { classes, drawerOpen, onClick } = props;
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <ToolBar>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-          >
-            <MenuIcon />
-          </IconButton>
+    <AppBar
+      className={classNames(classes.appBar, {
+        [classes.appBarShift]: drawerOpen
+      })}
+    >
+      <ToolBar disableGutters={!drawerOpen}>
+        <IconButton
+          className={classNames(classes.menuButton, {
+            [classes.hide]: drawerOpen
+          })}
+          color="inherit"
+          aria-label="Open drawer"
+          onClick={onClick}
+        >
+          <MenuIcon />
+        </IconButton>
 
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            DashBoard
-          </Typography>
-        </ToolBar>
-      </AppBar>
-    </div>
+        <Typography variant="h6" color="inherit">
+          DashBoard
+        </Typography>
+      </ToolBar>
+    </AppBar>
   );
 };
 
-export default withStyles(styles)(TopBar);
+export default withStyles(styles, { withTheme: true })(TopBar);
