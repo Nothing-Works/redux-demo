@@ -3,17 +3,19 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import { connect } from 'react-redux';
 import { getAllPosts } from './actions/signals/post';
-
+import Dashboard from './components/Dashboard';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import theme from './assets/jss/Theme';
 class App extends Component {
   componentDidMount = () => {
     this.props.getAllPosts();
   };
   render() {
     return (
-      <React.Fragment>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <h1>hello world</h1>
-      </React.Fragment>
+        <Dashboard />
+      </MuiThemeProvider>
     );
   }
 }
