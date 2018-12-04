@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import TopBar from './TopBar';
-import styles from '../assets/jss/Dashboard';
+import styles from '../assets/jss/Admin';
 import Main from './Main';
 import { withStyles } from '@material-ui/core/styles';
 import SideBar from './SideBar';
 import TopDrawer from './TopDrawer';
 import Divider from '@material-ui/core/Divider';
-class Dashboard extends Component {
+import DrawerList from './DrawerList';
+class Admin extends Component {
   state = { drawerOpen: false };
 
   handleToggleDrawer = () => {
@@ -28,6 +29,7 @@ class Dashboard extends Component {
             <TopDrawer onClick={this.handleToggleDrawer} theme={theme} />
           </div>
           <Divider />
+          <DrawerList />
         </SideBar>
 
         <main className={classes.content}>
@@ -39,4 +41,4 @@ class Dashboard extends Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(Dashboard);
+export default withStyles(styles, { withTheme: true })(Admin);

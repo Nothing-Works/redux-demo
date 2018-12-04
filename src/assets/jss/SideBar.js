@@ -1,9 +1,14 @@
 import { DrawerWidth } from '../../constants';
+import Background from '../svgs/SideBar.svg';
 const styles = theme => ({
+  background: {
+    backgroundImage: `url(${Background})`
+  },
   drawer: {
     width: DrawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    background: 'red'
   },
   drawerOpen: {
     width: DrawerWidth,

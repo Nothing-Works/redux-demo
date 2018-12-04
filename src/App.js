@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import { connect } from 'react-redux';
 import { getAllPosts } from './actions/signals/post';
-import Dashboard from './components/Dashboard';
+import Admin from './components/Admin';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './assets/jss/Theme';
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Dashboard />
+        <Admin />
       </MuiThemeProvider>
     );
   }

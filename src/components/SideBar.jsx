@@ -5,7 +5,6 @@ import styles from '../assets/jss/SideBar';
 import Drawer from '@material-ui/core/Drawer';
 const SideBar = props => {
   const { classes, drawerOpen, children } = props;
-  console.log(children);
   return (
     <Drawer
       variant="permanent"
@@ -14,7 +13,7 @@ const SideBar = props => {
         [classes.drawerClose]: !drawerOpen
       })}
       classes={{
-        paper: classNames({
+        paper: classNames(classes.background, {
           [classes.drawerOpen]: drawerOpen,
           [classes.drawerClose]: !drawerOpen
         })
