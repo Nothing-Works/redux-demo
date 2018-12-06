@@ -18,7 +18,6 @@ const SideBar = props => {
           [classes.drawerClose]: !drawerOpen
         })
       }}
-      open={drawerOpen}
     >
       {children}
     </Drawer>

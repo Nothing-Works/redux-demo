@@ -10,6 +10,7 @@ import styles from '../assets/jss/TopBar';
 
 const TopBar = props => {
   const { classes, drawerOpen, onClick } = props;
+
   return (
     <AppBar
       className={classNames(classes.appBar, {
@@ -27,7 +28,6 @@ const TopBar = props => {
         >
           <MenuIcon />
         </IconButton>
-
         <Typography variant="h6" color="inherit">
           DashBoard
         </Typography>

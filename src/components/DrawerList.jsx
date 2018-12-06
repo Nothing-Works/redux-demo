@@ -3,41 +3,32 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Dashboard from '@material-ui/icons/Dashboard';
-import Settings from '@material-ui/icons/Settings';
-import People from '@material-ui/icons/People';
-import Report from '@material-ui/icons/BarChart';
-import Task from '@material-ui/icons/List';
-import Product from '@material-ui/icons/ShoppingCart';
-const DrawerList = () => {
+import { NavLink } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import styles from '../assets/jss/DrawerList';
+import { routes } from '../route';
+
+const DrawerList = props => {
+  const { classes } = props;
   return (
     <List>
-      <ListItem button>
-        <ListItemIcon>{<Dashboard />}</ListItemIcon>
-        <ListItemText primary="Dashboard" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>{<People />}</ListItemIcon>
-        <ListItemText primary="Contacts" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>{<Report />}</ListItemIcon>
-        <ListItemText primary="Reports" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>{<Task />}</ListItemIcon>
-        <ListItemText primary="Tasks" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>{<Product />}</ListItemIcon>
-        <ListItemText primary="Products" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>{<Settings />}</ListItemIcon>
-        <ListItemText primary="Settings" />
-      </ListItem>
+      {routes.map(route => {
+        return (
+          <ListItem
+            key={route.path}
+            button
+            component={NavLink}
+            exact
+            to={route.path}
+            activeClassName={classes.active}
+          >
+            <ListItemIcon>{route.icon}</ListItemIcon>
+            <ListItemText primary={route.text} />
+          </ListItem>
+        );
+      })}
     </List>
   );
 };
 
-export default DrawerList;
+export default withStyles(styles, { withTheme: true })(DrawerList);

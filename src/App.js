@@ -6,6 +6,8 @@ import { getAllPosts } from './actions/signals/post';
 import Admin from './components/Admin';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './assets/jss/Theme';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 class App extends Component {
   componentDidMount = () => {
     this.props.getAllPosts();
@@ -14,7 +16,9 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        <Admin />
+        <Router>
+          <Admin />
+        </Router>
       </MuiThemeProvider>
     );
   }
